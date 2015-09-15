@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "ejs": "^2.3.1",
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "lodash": "^3.10.1",
+    "tinderjs": "^1.0.8",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": "0.12.2"
