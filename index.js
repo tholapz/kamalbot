@@ -10,11 +10,11 @@ var download = function(uri, filename, callback){
   });
 };
 
-
+var pain_in_the_butt_token = process.argv[2] || 'CAAGm0PX4ZCpsBAMGsZCZCIcoIjGy5u7iF8ZCJXtd1y4j4RhN3hLtbh7uDoPfFw9llHTSL7kHZC80e57jALsspd75iiAEXLDkCxTYlFxzYosAQWWbhFE0CK949fc8170kUV4rdBDB1PxifS4moZBVdQpHDTclCgBypbNr53DJb6uV4MPDPSFOq5JaWNJfq4nkln8x3hdicjpmKUe6EsNc51';
 
 var _message = "Hey there! I'm flattered getting swiped right from you 😉I personally think you're really cute 😆 This might sound a bit crazy but I'm actually looking for something meaningful. What are you hoping to find?\nLet's get together sometimes this week over a cup of boba tea and see if there's any connection? I'm not on tinder that much. Let's text? 424-236-1824";
 client.authorize(
-	'CAAGm0PX4ZCpsBABo1brV97dwJGgaTAfdlhzEMYFczV8ZB4lqP0i3caRvTZAJYC2TLEs47xLJXNZB5bh9wSZCPe6eTSxqZBGYpK7HJcgtvZCEfgpynPg0zDTk9Bry4bE2KEEhZB486sHxiTPfQp4xvhaXmZB3x03VqTRQZAaNWlZC4hLQFZAhWZCBZBoqbfZCrvhEEvlbw3eZAVgW3lh4GZBDhpbl3lI0ZB',
+	pain_in_the_butt_token,
 	'100009999468178',
 	function () {
 	var defaults = client.getDefaults();
