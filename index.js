@@ -27,7 +27,7 @@ client.authorize(
         return;
     	}
       if(!data.results) {
-        console.log('results: '+ results);
+        console.log('results: '+ JSON.stringify(data));
         return;
       }
       console.log('results count: ' + data.results.length)
