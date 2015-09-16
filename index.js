@@ -1,3 +1,4 @@
+// https://www.facebook.com/dialog/oauth?client_id=464891386855067&redirect_uri=https://www.facebook.com/connect/login_success.html&scope=basic_info,email,public_profile,user_about_me,user_activities,user_birthday,user_education_history,user_friends,user_interests,user_likes,user_location,user_photos,user_relationship_details&response_type=token
 var tinder = require('tinderjs');
 var client = new tinder.TinderClient();
 var _ = require('underscore');
@@ -10,9 +11,9 @@ var download = function(uri, filename, callback){
   });
 };
 
-var pain_in_the_butt_token = process.argv[2] || 'CAAGm0PX4ZCpsBAMGsZCZCIcoIjGy5u7iF8ZCJXtd1y4j4RhN3hLtbh7uDoPfFw9llHTSL7kHZC80e57jALsspd75iiAEXLDkCxTYlFxzYosAQWWbhFE0CK949fc8170kUV4rdBDB1PxifS4moZBVdQpHDTclCgBypbNr53DJb6uV4MPDPSFOq5JaWNJfq4nkln8x3hdicjpmKUe6EsNc51';
+var pain_in_the_butt_token = process.argv[2];
 
-var _message = "Hey there! I'm flattered getting swiped right from you 😉I personally think you're really cute 😆 This might sound a bit crazy but I'm actually looking for something meaningful. What are you hoping to find?\nLet's get together sometimes this week over a cup of boba tea and see if there's any connection? I'm not on tinder that much. Let's text? 424-236-1824";
+var _message = "I'm flattered getting swiped right from you. From that first picture it looks like you have a great personality. I know this might sound a bit crazy but I'm actually looking for something meaningful. What are you hoping to find?\nLet's get together sometimes this week over a cup of boba tea and see if there's any connection? I'm not on tinder that much. Let's text? 424-236-1824";
 client.authorize(
 	pain_in_the_butt_token,
 	'100009999468178',
@@ -22,13 +23,19 @@ client.authorize(
     
     client.getRecommendations(recs_size, function(error, data){
     	if(error){
-    		console.log('error getRecommendations ' + error);	
+    		console.log('error getRecommendations ' + error);
+        return;
     	}
+      if(!data.results) {
+        console.log('results: '+ results);
+        return;
+      }
+      console.log('results count: ' + data.results.length)
       _.chain(data.results)
         .each(function(result) {
           var id = result._id;
           var name = result.name;
-          var imgUrl = result.photos[0].processedFiles[0].url;
+          // var imgUrl = result.photos[0].processedFiles[0].url;
 
           client.like(id, function(error, data) {
           	if(error) {
